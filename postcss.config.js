@@ -1,7 +1,9 @@
 module.exports = {
-  plugins: {
-    autoprefixer: {
-      ignoreUnknownVersions: true, // Ignore les avertissements sur les valeurs obsolètes
-    }
-  }
+  plugins: [
+    require("postcss-replace")({
+      pattern: "color-adjust",
+      data: { "color-adjust": "print-color-adjust" }
+    }),
+    require("autoprefixer"),
+  ]
 };
